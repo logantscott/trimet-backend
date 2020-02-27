@@ -64,20 +64,20 @@ app.get('/', async(req, res, next) => {
     }
 });
 
-// app.get('/users', async(req, res, next) => {
-//     try {
-//         const result = await client.query(`
-//             SELECT
-//                 *
-//             FROM users
-//             ORDER BY id;
-//         `,);
+app.get('/users', async(req, res, next) => {
+    try {
+        const result = await client.query(`
+            SELECT
+                *
+            FROM users
+            ORDER BY id;
+        `,);
 
-//         res.json(result.rows);
-//     } catch (err) {
-//         next(err);
-//     }
-// });
+        res.json(result.rows);
+    } catch (err) {
+        next(err);
+    }
+});
 
 // app.get('/api/todos', async(req, res, next) => {
 //     try {
